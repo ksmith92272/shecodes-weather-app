@@ -60,40 +60,46 @@ function convertToFahrenheit(temp) {
 
 function changeToFahrenheit() {
 	let unit = document.getElementById("current-temperature-unit");
-	unit.classList.remove("celcius");
-	unit.classList.add("fahrenheit");
 
-	let celcius = document.getElementById("celcius");
-	celcius.classList.remove("selected");
-	celcius.classList.add("deselected");
+	if (unit.classList.contains(`celcius`)) {
+		unit.classList.remove("celcius");
+		unit.classList.add("fahrenheit");
 
-	let fahrenheit = document.getElementById("fahrenheit");
-	fahrenheit.classList.remove("deselected");
-	fahrenheit.classList.add("selected");
+		let celcius = document.getElementById("celcius");
+		celcius.classList.remove("selected");
+		celcius.classList.add("deselected");
 
-	let tempElement = document.getElementById(`current-temperature-value`);
-	let tempValue = parseFloat(tempElement.textContent);
-	let convertedTemp = Math.round((tempValue * 9) / 5 + 32);
-	tempElement.innerHTML = convertedTemp;
+		let fahrenheit = document.getElementById("fahrenheit");
+		fahrenheit.classList.remove("deselected");
+		fahrenheit.classList.add("selected");
+
+		let tempElement = document.getElementById(`current-temperature-value`);
+		let tempValue = parseFloat(tempElement.textContent);
+		let convertedTemp = Math.round((tempValue * 9) / 5 + 32);
+		tempElement.innerHTML = convertedTemp;
+	}
 }
 
 function changeToCelcius() {
 	let unit = document.getElementById("current-temperature-unit");
-	unit.classList.remove("fahrenheit");
-	unit.classList.add("celcius");
 
-	let celcius = document.getElementById("celcius");
-	celcius.classList.remove("deselected");
-	celcius.classList.add("selected");
+	if (unit.classList.contains(`fahrenheit`)) {
+		unit.classList.remove("fahrenheit");
+		unit.classList.add("celcius");
 
-	let fahrenheit = document.getElementById("fahrenheit");
-	fahrenheit.classList.remove("selected");
-	fahrenheit.classList.add("deselected");
+		let celcius = document.getElementById("celcius");
+		celcius.classList.remove("deselected");
+		celcius.classList.add("selected");
 
-	let tempElement = document.getElementById(`current-temperature-value`);
-	let tempValue = parseFloat(tempElement.textContent);
-	let convertedTemp = Math.round(((tempValue - 32) * 5) / 9);
-	tempElement.innerHTML = convertedTemp;
+		let fahrenheit = document.getElementById("fahrenheit");
+		fahrenheit.classList.remove("selected");
+		fahrenheit.classList.add("deselected");
+
+		let tempElement = document.getElementById(`current-temperature-value`);
+		let tempValue = parseFloat(tempElement.textContent);
+		let convertedTemp = Math.round(((tempValue - 32) * 5) / 9);
+		tempElement.innerHTML = convertedTemp;
+	}
 }
 
 let currentDateELement = document.querySelector("#current-date");
