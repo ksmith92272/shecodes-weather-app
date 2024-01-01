@@ -39,7 +39,7 @@ input {
 
 .search-form {
 	display: grid;
-	grid-template-columns: 472px 1fr;
+	grid-template-columns: 80% 1fr;
 	grid-gap: 8px;
 }
 
