@@ -29,30 +29,29 @@ function search(event) {
 	event.preventDefault();
 
 	let searchInputElement = document.querySelector("#search-input");
-	let cityElement = document.querySelector("#current-city");
-	cityElement.innerHTML = searchInputElement.value;
-
-	getWeather(searchInputElement.value);
-}
-
-function getWeather(city) {
+	let city = searchInputElement.value;
 	let apiKey = `6atoab0f92eca3d102a54e7250f4dd0f`;
-	let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+	let units = `metric`;
+
+	let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
 
 	axios.get(apiUrl).then(displayCurrentTemp);
 }
 
 function displayCurrentTemp(response) {
+	let city = response.data.city;
 	let temp = Math.round(response.data.temperature.current);
 	let unit = document.getElementById(`current-temperature-unit`);
+	let cityElement = document.getElementById(`current-city`);
 
-	if (unit.classList.contains("fahrenheit")) {
+	if (unit.classList.contains(`fahrenheit`)) {
 		temp = Math.round((temp * 9) / 5 + 32);
 	}
 
-	let currentTemp = document.getElementById(`current-temperature-value`);
+	let tempElement = document.getElementById(`current-temperature-value`);
 
-	currentTemp.innerHTML = temp;
+	tempElement.innerHTML = temp;
+	cityElement.innerHTML = city;
 }
 
 function convertToFahrenheit(temp) {
