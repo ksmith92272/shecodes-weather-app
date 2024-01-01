@@ -3,47 +3,74 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
+p {
+	font-size: 16px;
+	line-height: 24px;
+}
+
 a {
 	color: #885df1;
+	font-weight: 700;
 }
 
 .weather-app {
 	background: white;
 	max-width: 600px;
 	margin: 60px auto;
-	padding: 30px;
-	border-radius: 10px;
-	box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+	padding: 32px;
+	border-radius: 16px;
+	box-shadow: 0 32px 52px rgba(65, 50, 100, 0.08);
 }
 
 header {
 	border-bottom: 1px solid #f9f7fe;
-	padding-bottom: 30px;
+	padding-bottom: 32px;
+}
+
+input {
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1;
+	margin: 8px;
+	padding: 20px;
+}
+
+.search-form {
+	display: grid;
+	grid-template-columns: 472px 1fr;
+	grid-gap: 8px;
 }
 
 .search-input {
 	background-color: #f9f7fe;
-	border: none;
-	color: rgba(39, 33, 66, 0.4);
-	font-size: 16px;
-	padding: 20px;
-	width: 75%;
-	border-radius: 6px;
+	border: 2px solid #f9f7fe;
+	color: rgba(39, 33, 66, 0.5);
+}
+
+.search-input:focus {
+	outline: none;
+	border: 2px solid #885df1;
 }
 
 .search-button {
-	margin-left: 5px;
-	font-size: 16px;
 	background-color: #885df1;
-	color: white;
-	border: none;
-	padding: 20px;
-	line-height: 1;
-	border-radius: 5px;
+	border: 2px solid #885df1;
+	color: #fff;
+	transition: all 200ms ease-in-out;
+}
+
+.search-button:hover {
+	background-color: #fff;
+	color: #885df1;
+	cursor: pointer;
 }
 
 main {
-	padding: 30px 0;
+	padding: 32px 0;
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 .current-temperature {
@@ -56,7 +83,7 @@ main {
 }
 
 .current-city {
-	font-size: 38px;
+	font-size: 40px;
 	font-weight: 900;
 	margin: 0;
 }
@@ -72,10 +99,10 @@ main {
 }
 
 .current-temperature-icon {
+	font-size: 40px;
+	margin-right: 16px;
 	position: relative;
 	top: -8px;
-	font-size: 40px;
-	margin-right: 10px;
 }
 
 .current-temperature-value {
@@ -88,15 +115,7 @@ main {
 	font-size: 28px;
 	font-weight: 100;
 	position: relative;
-	top: -38px;
-}
-
-footer {
-	border-top: 1px solid #f9f7fe;
-	text-align: center;
-	padding-top: 15px;
-
-	color: rgba(39, 33, 66, 0.4);
+	top: -36px;
 }
 
 .selected {
@@ -106,4 +125,11 @@ footer {
 .deselected {
 	color: rgba(136, 93, 241, 0.6);
 	cursor: pointer;
+}
+
+footer {
+	border-top: 1px solid #f9f7fe;
+	color: rgba(39, 33, 66, 0.4);
+	padding-top: 16px;
+	text-align: center;
 }
